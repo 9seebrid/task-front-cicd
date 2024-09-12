@@ -21,13 +21,16 @@ FROM nginx:1.23-alpine
 
 # nginx default 접근 파일 설정
 WORKDIR /usr/share/nginx/html
-COPY /default.conf /etc/nginx/sites-available/default
 
 # 기존 도커 컨테이너 삭제
 RUN rm -rf *
 
-# nginx 디렉토리에 리액트 빌드 파일 복사
-COPY --from=build /app/build .
+# 빌드 단계에서 리액트 빌드 파일을 복사
+COPY --from=build /app/build /usr/share/nginx/html
+
+
+# nginx 설정 파일 복사
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # nginx 포트 설정
 EXPOSE 80
