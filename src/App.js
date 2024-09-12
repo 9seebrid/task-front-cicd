@@ -12,7 +12,7 @@ import Proceeding from './components/Proceeding';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ function App() {
 
         <ToastContainer position="top-center" autoClose={2000} />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
