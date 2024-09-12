@@ -21,7 +21,7 @@ FROM nginx:1.23-alpine
 
 # nginx default 접근 파일 설정
 WORKDIR /usr/share/nginx/html
-COPY /default.conf /etc/nginx/sites-available/default/default
+COPY /default.conf /etc/nginx/sites-available/default
 
 # 기존 도커 컨테이너 삭제
 RUN rm -rf *
